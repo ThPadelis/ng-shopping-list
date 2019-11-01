@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-between align-items-center">
+  <p *ngIf="!isEdit; else editing">{{ item.name }}</p>
+  <ng-template #editing>
+    <div class="input-group">
+      <input
+        type="text"
+        name="shoppingItem"
+        id="shoppingItem"
+        [(ngModel)]="item.name"
+        (keyup.enter)="onEdit(item)"
+        class="form-control"
+      />
+      <div class="input-group-append">
+        <button class="btn btn-primary" (click)="onEdit(item)">
+          <span class="fa fa-check"></span>
+        </button>
+      </div>
+    </div>
+  </ng-template>
+  <div *ngIf="!isEdit">
+    <span class="far fa-copy" (click)="onCopy()"></span>
+    <span class="fa fa-pen-fancy text-primary" (click)="isEdit = true"></span>
+    <span class="fa fa-trash-alt text-danger" (click)="onRemove()"></span>
+  </div>
+</div>
