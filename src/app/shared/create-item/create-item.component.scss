@@ -1,0 +1,9 @@
+.form-control:focus {
+  box-shadow: none;
+}
+
+.shadow {
+  -webkit-box-shadow: 10px 10px 0px 0px rgb(108, 117, 125, 0.75) !important ;
+  -moz-box-shadow: 10px 10px 0px 0px rgb(108, 117, 125, 0.75) !important ;
+  box-shadow: 10px 10px 0px 0px rgb(109, 118, 126, 0.75) !important ;
+}
