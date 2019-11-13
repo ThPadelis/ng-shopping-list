@@ -1,35 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
 @import "./assets/variables";
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "./assets/bootswatch";
 
+html,
 body {
-  padding-top: 10em;
-  padding-bottom: 10em;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.fa,
-.far {
-  font-size: 1.5em;
-  margin-right: 10px;
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:last-child {
-    margin-right: 0;
-  }
+[class*="col-"],
+section {
+  margin-bottom: 1.5rem;
 }
 
-.card {
-  margin-bottom: 1.5em;
-  border-radius: 0;
-}
-
-.list-group-item {
-  p {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 0;
-  }
+section {
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
