@@ -1,4 +1,4 @@
-<div class="card rounded-0 shadow">
+<div class="card custom-card">
   <div class="card-body py-5">
     <form [formGroup]="createItemForm" (ngSubmit)="onSubmit()">
       <div class="form-group mb-0">
@@ -11,12 +11,16 @@
           class="form-control "
           formControlName="createItem"
         />
-        <small *ngIf="(createItem.dirty || createItem.touched) && createItem.invalid && createItem.errors.required" class="text-danger"
+        <small
+          *ngIf="
+            (createItem.dirty || createItem.touched) &&
+            createItem.invalid &&
+            createItem.errors.required
+          "
+          class="text-danger"
           >This field is required!</small
         >
-        <small
-          id="createItemHelp"
-          class="form-text text-muted"
+        <small id="createItemHelp" class="form-text text-muted"
           >Start typing and press <code>enter</code> when you are done.</small
         >
       </div>
