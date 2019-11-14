@@ -16,7 +16,7 @@ export class ShoppingService {
   }
 
   getItems() {
-    return this.http.get(this.baseURL).pipe(delay(1000));
+    return this.http.get<IShoppingItem[]>(this.baseURL).pipe(delay(1000));
   }
 
   deleteItem(id: string) {

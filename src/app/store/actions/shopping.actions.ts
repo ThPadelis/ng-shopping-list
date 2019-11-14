@@ -42,7 +42,7 @@ export class AddShoppingItemFailAction implements Action {
   constructor(public payload: Error) {}
 }
 
-export class RemoveShoppingActionItem implements Action {
+export class RemoveShoppingItemAction implements Action {
   readonly type = ShoppingActionTypes.REMOVE_ITEM;
   constructor(public payload: string) {}
 }
@@ -61,7 +61,7 @@ export type ShoppingAction =
   | AddShoppingItemAction
   | AddShoppingItemSuccessAction
   | AddShoppingItemFailAction
-  | RemoveShoppingActionItem
+  | RemoveShoppingItemAction
   | RemoveShoppingItemSuccessAction
   | RemoveShoppingItemFailAction
   | LoadShoppingAction
