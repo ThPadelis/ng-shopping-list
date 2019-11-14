@@ -1,12 +1,3 @@
 {
-  "shopping": [
-    {
-      "id": "6fa461a0-4f25-44bd-8250-cd0783b2bf73",
-      "name": "coca cola"
-    },
-    {
-      "id": "b46fbd96-6cd3-48f5-bd07-eb712bd5fef0",
-      "name": "d"
-    }
-  ]
+  "shopping": []
 }

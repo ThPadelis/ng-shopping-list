@@ -1,10 +1,20 @@
 <div class="card custom-card">
   <div class="card-body">
     <perfect-scrollbar class="ps-height" [config]="config">
-      <shopping-list-item
-        *ngFor="let si of shoppingItems | async"
-        [item]="si"
-      ></shopping-list-item>
+      <ng-container
+        *ngTemplateOutlet="
+          (shoppingItems | async)?.length > 0 ? hasItems : hasNoItems
+        "
+      ></ng-container>
+      <ng-template #hasItems>
+        <shopping-list-item
+          *ngFor="let si of shoppingItems | async"
+          [item]="si"
+        ></shopping-list-item>
+      </ng-template>
+      <ng-template #hasNoItems>
+        <h6 class="mb-0">Shopping List Is Empty</h6>
+      </ng-template>
     </perfect-scrollbar>
   </div>
 </div>
