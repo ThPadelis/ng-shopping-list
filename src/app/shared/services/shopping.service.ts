@@ -7,7 +7,7 @@ import { IShoppingItem } from "src/app/store/models/IShoppingItem";
   providedIn: "root"
 })
 export class ShoppingService {
-  private baseURL = "http://localhost:300/shopping";
+  private baseURL = "http://localhost:3000/shopping";
 
   constructor(private http: HttpClient) {}
 

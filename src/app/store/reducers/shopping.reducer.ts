@@ -23,19 +23,43 @@ export function ShoppingReducer(
 ) {
   switch (action.type) {
     case ShoppingActionTypes.LOAD_SHOPPING:
-      return { ...state, loading: true };
+      return {
+        ...state,
+        loading: true
+      };
     case ShoppingActionTypes.LOAD_SHOPPING_SUCCESS:
-      return { ...state, list: action.payload, loading: false };
+      return {
+        ...state,
+        list: action.payload,
+        loading: false
+      };
     case ShoppingActionTypes.LOAD_SHOPPING_FAIL:
-      return { ...state, error: action.payload, loading: false };
+      return {
+        ...state,
+        error: action.payload,
+        loading: false
+      };
     case ShoppingActionTypes.ADD_ITEM:
-      return { ...state, loading: true };
+      return {
+        ...state,
+        loading: true
+      };
     case ShoppingActionTypes.ADD_ITEM_SUCCESS:
-      return { ...state, list: [...state.list, action.payload] };
+      return {
+        ...state,
+        list: [...state.list, action.payload]
+      };
     case ShoppingActionTypes.ADD_ITEM_FAIL:
-      return { ...state, error: action.payload, loading: false };
+      return {
+        ...state,
+        error: action.payload,
+        loading: false
+      };
     case ShoppingActionTypes.REMOVE_ITEM:
-      return { ...state, loading: true };
+      return {
+        ...state,
+        loading: true
+      };
     case ShoppingActionTypes.REMOVE_ITEM_SUCCESS:
       return {
         ...state,
@@ -45,7 +69,11 @@ export function ShoppingReducer(
         loading: false
       };
     case ShoppingActionTypes.REMOVE_ITEM_FAIL:
-      return { ...state, error: action.payload, loading: false };
+      return {
+        ...state,
+        error: action.payload,
+        loading: false
+      };
     default:
       return state;
   }

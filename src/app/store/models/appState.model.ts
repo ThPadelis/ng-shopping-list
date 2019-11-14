@@ -1,5 +1,5 @@
-import { IShoppingItem } from "./IShoppingItem";
+import { IShoppingState } from "./IShoppingState";
 
 export class AppState {
-  readonly shopping: IShoppingItem[];
+  readonly shopping: IShoppingState;
 }

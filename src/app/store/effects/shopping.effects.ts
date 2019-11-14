@@ -15,8 +15,9 @@ import {
 } from "../actions/shopping.actions";
 import { ShoppingService } from "src/app/shared/services/shopping.service";
 import { of } from "rxjs";
+import { IShoppingItem } from "../models/IShoppingItem";
 
-@Injectable({ providedIn: "root" })
+@Injectable()
 export class ShoppingEffects {
   constructor(
     private actions: Actions,
@@ -25,12 +26,14 @@ export class ShoppingEffects {
 
   @Effect() loadShopping = this.actions.pipe(
     ofType<LoadShoppingAction>(ShoppingActionTypes.LOAD_SHOPPING),
-    mergeMap(() => {
-      return this.shoppingService.getItems().pipe(
-        map(data => new LoadShoppingSuccessAction(data)),
+    mergeMap(() =>
+      this.shoppingService.getItems().pipe(
+        map((data: IShoppingItem[]) => {
+          return new LoadShoppingSuccessAction(data);
+        }),
         catchError(error => of(new LoadShoppingFailAction(error)))
-      );
-    })
+      )
+    )
   );
 
   @Effect() addItem = this.actions.pipe(
