@@ -1,3 +1,9 @@
+@import "src/assets/variables";
 [class*="col-"] {
   margin-bottom: 0;
+}
+
+.fa:hover {
+  color: $danger;
+  cursor: pointer;
 }

@@ -1,4 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
+import { IShoppingItem } from "src/app/store/models/IShoppingItem";
+import { Store } from "@ngrx/store";
+import { AppState } from "src/app/store/models/appState.model";
+import { RemoveShoppingItem } from "src/app/store/actions/shopping.actions";
 
 @Component({
   selector: "shopping-list-item",
@@ -6,7 +10,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./shopping-list-item.component.scss"]
 })
 export class ShoppingListItemComponent implements OnInit {
-  constructor() {}
+  @Input() item: IShoppingItem;
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {}
+
+  onRemove(id: string) {
+    this.store.dispatch(new RemoveShoppingItem(id));
+  }
 }

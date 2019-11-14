@@ -1,0 +1,10 @@
+<div class="card custom-card">
+  <div class="card-body">
+    <perfect-scrollbar class="ps-height" [config]="config">
+      <shopping-list-item
+        *ngFor="let si of shoppingItems | async"
+        [item]="si"
+      ></shopping-list-item>
+    </perfect-scrollbar>
+  </div>
+</div>

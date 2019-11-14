@@ -2,20 +2,20 @@ import { NgModule } from "@angular/core";
 import { NavbarModule } from "./navbar/navbar.module";
 import { BotNavbarModule } from "./bot-navbar/bot-navbar.module";
 import { CreateItemModule } from "./create-item/create-item.module";
-import { ShoppingListItemModule } from "./shopping-list-item/shopping-list-item.module";
+import { ShoppingListModule } from "./shopping-list/shopping-list.module";
 
 @NgModule({
   imports: [
     NavbarModule,
     BotNavbarModule,
     CreateItemModule,
-    ShoppingListItemModule
+    ShoppingListModule
   ],
   exports: [
     NavbarModule,
     BotNavbarModule,
     CreateItemModule,
-    ShoppingListItemModule
+    ShoppingListModule
   ],
   declarations: [],
   providers: []
