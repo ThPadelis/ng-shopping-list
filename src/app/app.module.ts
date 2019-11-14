@@ -7,6 +7,9 @@ import { SharedModule } from "./shared/shared.module";
 import { StoreModule } from "@ngrx/store";
 import { ShoppingReducer } from "./store/reducers/shopping.reducer";
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { environment } from "../environments/environment";
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,8 +17,13 @@ import { FormsModule } from "@angular/forms";
     BrowserModule,
     SharedModule,
     FormsModule,
+    HttpClientModule,
     StoreModule.forRoot({
       shopping: ShoppingReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
     })
   ],
   providers: [],

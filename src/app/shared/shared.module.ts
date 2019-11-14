@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
-import { NavbarModule } from "./navbar/navbar.module";
-import { BotNavbarModule } from "./bot-navbar/bot-navbar.module";
-import { CreateItemModule } from "./create-item/create-item.module";
-import { ShoppingListModule } from "./shopping-list/shopping-list.module";
+import { NavbarModule } from "./components/navbar/navbar.module";
+import { BotNavbarModule } from "./components/bot-navbar/bot-navbar.module";
+import { CreateItemModule } from "./components/create-item/create-item.module";
+import { ShoppingListModule } from "./components/shopping-list/shopping-list.module";
 
 @NgModule({
   imports: [

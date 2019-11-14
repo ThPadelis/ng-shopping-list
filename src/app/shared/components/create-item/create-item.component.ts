@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/store/models/appState.model";
-import { AddShoppingItem } from "src/app/store/actions/shopping.actions";
+import { AddShoppingItemAction } from "src/app/store/actions/shopping.actions";
 import * as uuid from "uuid";
 
 const nonWhitespaceRegExp: RegExp = new RegExp("\\S");
@@ -30,7 +30,7 @@ export class CreateItemComponent implements OnInit {
     // TODO: Use EventEmitter with form value
     if (this.createItemForm.valid) {
       this.store.dispatch(
-        new AddShoppingItem({ id: uuid(), name: this.createItem.value })
+        new AddShoppingItemAction({ id: uuid(), name: this.createItem.value })
       );
       this.createItemForm.reset();
     }
