@@ -4,23 +4,48 @@ import {
   ShoppingActionTypes
 } from "../actions/shopping.actions";
 import * as uuid from "uuid/v4";
+import { IShoppingState } from "../models/IShoppingState";
 
-const initialState: IShoppingItem[] = [
-  {
-    id: uuid(),
-    name: "coca cola"
-  }
-];
+const initialState: IShoppingState = {
+  list: [
+    {
+      id: uuid(),
+      name: "coca cola"
+    }
+  ],
+  loading: false,
+  error: undefined
+};
 
 export function ShoppingReducer(
-  state: IShoppingItem[] = initialState,
+  state: IShoppingState = initialState,
   action: ShoppingAction
 ) {
   switch (action.type) {
+    case ShoppingActionTypes.LOAD_SHOPPING:
+      return { ...state, loading: true };
+    case ShoppingActionTypes.LOAD_SHOPPING_SUCCESS:
+      return { ...state, list: action.payload, loading: false };
+    case ShoppingActionTypes.LOAD_SHOPPING_FAIL:
+      return { ...state, error: action.payload, loading: false };
     case ShoppingActionTypes.ADD_ITEM:
-      return [...state, action.payload];
+      return { ...state, loading: true };
+    case ShoppingActionTypes.ADD_ITEM_SUCCESS:
+      return { ...state, list: [...state.list, action.payload] };
+    case ShoppingActionTypes.ADD_ITEM_FAIL:
+      return { ...state, error: action.payload, loading: false };
     case ShoppingActionTypes.REMOVE_ITEM:
-      return state.filter((item: IShoppingItem) => item.id !== action.payload);
+      return { ...state, loading: true };
+    case ShoppingActionTypes.REMOVE_ITEM_SUCCESS:
+      return {
+        ...state,
+        list: state.list.filter(
+          (item: IShoppingItem) => item.id !== action.payload
+        ),
+        loading: false
+      };
+    case ShoppingActionTypes.REMOVE_ITEM_FAIL:
+      return { ...state, error: action.payload, loading: false };
     default:
       return state;
   }
