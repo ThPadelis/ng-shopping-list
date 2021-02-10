@@ -4,11 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --aot --base-href /ng-shopping-list/",
     "db:start": "json-server db.json",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "sh deploy.sh"
   },
   "private": true,
   "dependencies": {
